@@ -6,8 +6,8 @@ public class ReadDataFromStatementDemo {
     public static void main(String[] args) {
      //   readDatabaseTableContent();
     //    insertRecordsInToTable();
-     //   deleteRecordInToTable();
-        updateRecordInToTable();
+       deleteRecordInToTable();
+        //updateRecordInToTable();
     }
 
     private static void readDatabaseTableContent()
