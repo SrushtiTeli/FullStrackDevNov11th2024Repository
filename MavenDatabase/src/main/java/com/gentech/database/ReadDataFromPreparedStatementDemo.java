@@ -6,6 +6,7 @@ public class ReadDataFromPreparedStatementDemo {
     public static void main(String[] args) {
         readDatabaseTableContent();
       // insertRecordsInToTable();
+       // deleteRecordInTable();
     }
 
     private static void readDatabaseTableContent()
@@ -60,6 +61,32 @@ public class ReadDataFromPreparedStatementDemo {
             Class.forName("com.mysql.cj.jdbc.Driver");
             conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/gentechdb","root","root");
             String query="insert into dept values(60,'INSURANCE','MYSORE')";
+            PreparedStatement stmt=conn.prepareStatement(query);
+            int v1=stmt.executeUpdate();
+
+        }catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+        finally
+        {
+            try
+            {
+                conn.close();
+            }catch(Exception e)
+            {
+                e.printStackTrace();
+            }
+        }
+    }
+    private static void deleteRecordInTable()
+    {
+        Connection conn=null;
+        try
+        {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/gentechdb","root","root");
+            String query="delete from dept where DEPTNO=10";
             PreparedStatement stmt=conn.prepareStatement(query);
             int v1=stmt.executeUpdate();
 
